@@ -15,9 +15,12 @@ const generateimage = async (req, res) => {
     const response = await openai.createImage({
       // the prompt will later serve where the user types to search
       // n will represent the number of images which is being hard coded to one
-      prompt: "happy dog running from his giant tail",
+      // prompt: "happy dog running from his giant tail",
+      // n: 1,
+      // size: "512x512",
+      prompt: prompt,
       n: 1,
-      size: "512x512",
+      size: imageSize,
     });
     // the response is going to return an imageUrl that we need
     const imageUrl = response.data.data[0].url;
@@ -25,6 +28,7 @@ const generateimage = async (req, res) => {
     res.status(200).json({
       success: true,
       data: imageUrl, // Added but there are many other options to choose/use
+      // verifyDataOnFront: imageUrl,
     });
   } catch (error) {
     if (error.response) {

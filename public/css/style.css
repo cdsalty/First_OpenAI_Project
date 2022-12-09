@@ -95,7 +95,7 @@ form select {
   width: 500px;
   max-width: 500px;
   padding: 1rem;
-  border: 1px solid yellow;
+  border: 1.5px solid #059dc0;
   border-radius: 5px;
   margin-bottom: 1rem;
 }
@@ -113,6 +113,8 @@ form button {
 
 form button:hover {
   transform: scale(1.1);
+  background-color: #fff;
+  color: #059dc0;
 }
 
 /* Image */
@@ -125,10 +127,20 @@ form button:hover {
 img {
   display: block;
   margin: auto;
+  padding-bottom: 2rem;
 }
 
 .msg {
   font-size: 1.6rem;
   text-align: center;
   margin-top: 1rem;
+}
+
+.name {
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  margin-bottom: 3rem;
+  margin-right: 2rem;
+  font-size: small;
 }

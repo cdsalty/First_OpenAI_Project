@@ -1,6 +1,10 @@
 function onSubmit(e) {
   e.preventDefault();
 
+  // Make sure we start off with empty values
+  document.querySelector(".msg").textContent = "";
+  document.querySelector("#image").src = "";
+
   const prompt = document.querySelector("#prompt").value;
   const size = document.querySelector("#size").value;
 
@@ -30,10 +34,14 @@ async function requestAiImage(prompt, size) {
     });
     if (!response.ok) {
       removeSpinner();
-      throw new Error("That image could not be generated.");
+      throw new Error("Image could not be generated.");
     }
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
+    const imageUrl = data.data;
+
+    document.querySelector("#image").src = imageUrl;
+
     removeSpinner();
   } catch (error) {
     document.querySelector(".msg").textContent = error;
